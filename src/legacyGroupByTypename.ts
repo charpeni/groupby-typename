@@ -17,7 +17,12 @@ export function legacyGroupByTypename<Objects extends readonly GraphQLObject[]>(
       acc[key] = [] as GroupedGraphQLObjects<Objects>[typeof key];
     }
 
-    acc[key].push(object as GroupedGraphQLObjects<Objects>[typeof key][number]);
+    acc[key]!.push(
+      object as Exclude<
+        GroupedGraphQLObjects<Objects>[typeof key],
+        undefined
+      >[number],
+    );
 
     return acc;
   }, {} as GroupedGraphQLObjects<Objects>);

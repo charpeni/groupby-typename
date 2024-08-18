@@ -9,7 +9,7 @@ export type GraphQLObject = { __typename: string; [key: PropertyKey]: unknown };
  * Basically a type representing of a group by operation on an array of GraphQL objects.
  */
 export type GroupedGraphQLObjects<Objects extends readonly GraphQLObject[]> = {
-  [K in Objects[number]['__typename']]: Extract<
+  [K in Objects[number]['__typename']]?: Extract<
     Objects[number],
     { __typename: K }
   >[];

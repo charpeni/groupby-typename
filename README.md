@@ -33,8 +33,8 @@ By default, using a naive group by doesn't offer a type-safe way to access the g
 
 ```ts
 {
-  User: User[];
-  Post: Post[];
+  User?: User[];
+  Post?: Post[];
 }
 ```
 
@@ -81,11 +81,14 @@ const data: Array<User | Post> = [
 ];
 
 const grouped = groupByTypename(data);
-//    ^? const grouped: { User: User[]; Post: Post[]; }
+//    ^? const grouped: { User?: User[]; Post?: Post[]; }
 
 const users = grouped.User;
-//    ^? const users: User[]
+//    ^? const users: User[] | undefined
 ```
+
+> [!NOTE]
+> Because they are not runtime types, the union of types is necessarily a superset of the types in the array at runtime. Therefore, the returned keys are always optional, as we can't know if at least one object of a given type is present in the array.
 
 ## License
 

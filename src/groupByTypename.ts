@@ -11,10 +11,10 @@ import type { GraphQLObject, GroupedGraphQLObjects } from './types';
  * const data = [{ __typename: 'User' as const }, { __typename: 'Post' as const }];
  * const grouped = groupByTypename(data);
  * //    ^? const grouped: {
- * //         User: {
+ * //         User?: {
  * //           __typename: "User";
  * //         }[];
- * //         Post: {
+ * //         Post?: {
  * //           __typename: "Post";
  * //         }[];
  * //       }

@@ -66,11 +66,40 @@ describe('legacyGroupByTypename', () => {
     const result = legacyGroupByTypename(objects);
 
     expectTypeOf(result).toEqualTypeOf<{
-      User: Array<User>;
-      Post: Array<Post>;
+      User?: Array<User>;
+      Post?: Array<Post>;
     }>();
 
-    expectTypeOf(result.User).toEqualTypeOf<Array<User>>();
-    expectTypeOf(result.Post).toEqualTypeOf<Array<Post>>();
+    expectTypeOf(result.User).toEqualTypeOf<Array<User> | undefined>();
+    expectTypeOf(result.Post).toEqualTypeOf<Array<Post> | undefined>();
+  });
+
+  it('should handle potential keys', () => {
+    type User = {
+      __typename: 'User';
+      id: number;
+      name: string;
+    };
+    type Post = {
+      __typename: 'Post';
+      id: number;
+      title: string;
+    };
+    type Objects = Array<User | Post>;
+
+    const objects: Objects = [
+      { __typename: 'User', id: 1, name: 'John' },
+      { __typename: 'User', id: 2, name: 'Jane' },
+    ];
+
+    const result = legacyGroupByTypename(objects);
+
+    expectTypeOf(result).toEqualTypeOf<{
+      User?: Array<User>;
+      Post?: Array<Post>;
+    }>();
+
+    expectTypeOf(result.User).toEqualTypeOf<Array<User> | undefined>();
+    expectTypeOf(result.Post).toEqualTypeOf<Array<Post> | undefined>();
   });
 });

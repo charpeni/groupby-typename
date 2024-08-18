@@ -39,8 +39,8 @@ describe('types', () => {
       type Objects = Array<User | Post>;
 
       expectTypeOf<{
-        User: Array<User>;
-        Post: Array<Post>;
+        User?: Array<User>;
+        Post?: Array<Post>;
       }>().toMatchTypeOf<GroupedGraphQLObjects<Objects>>();
     });
   });
