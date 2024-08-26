@@ -17,6 +17,9 @@
   <a href="https://www.npmjs.org/package/groupby-typename">
     <img src="https://img.shields.io/npm/dm/groupby-typename" alt="Monthly downloads" />
   </a>
+  <a href="https://codecov.io/gh/charpeni/groupby-typename" > 
+    <img src="https://codecov.io/gh/charpeni/groupby-typename/graph/badge.svg?token=2GHFFRN2M7"/> 
+  </a>
   <a href="https://makeapullrequest.com">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
   </a>
