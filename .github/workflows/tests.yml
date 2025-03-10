@@ -14,20 +14,20 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '20.x' # This is expected, we want to test again Node 20 so it doesn't have `Object.groupBy` built in.
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Run Jest
         run: yarn test
-  test-node-21:
+  test-node-22:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '21.x'
+          node-version: '22.x'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --frozen-lockfile
@@ -44,7 +44,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '22.x'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --frozen-lockfile
@@ -57,7 +57,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '22.x'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --frozen-lockfile
@@ -70,7 +70,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '22.x'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --frozen-lockfile
@@ -83,7 +83,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '22.x'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --frozen-lockfile
