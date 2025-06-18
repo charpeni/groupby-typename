@@ -1,6 +1,6 @@
 {
   "name": "groupby-typename",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Type-safe and tested utility to easily group an array of GraphQL objects by their typename",
   "keywords": [
     "groupby",
