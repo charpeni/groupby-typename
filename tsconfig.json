@@ -1,7 +1,6 @@
 {
   "extends": "@total-typescript/tsconfig/bundler/no-dom/library",
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["esnext"]
+    "lib": ["ES2024.Object"]
   }
 }
