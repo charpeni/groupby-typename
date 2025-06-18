@@ -22,14 +22,14 @@
   "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.cts",
   "files": [
     "LICENSE",
     "README.md",
@@ -37,7 +37,7 @@
     "package.json"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "build": "tsdown",
     "format": "prettier --write .",
     "lint": "eslint .",
     "prepack": "yarn build",
@@ -64,7 +64,7 @@
     "lint-staged": "^16.1.2",
     "prettier": "3.5.3",
     "ts-jest": "^29.4.0",
-    "tsup": "^8.5.0",
+    "tsdown": "^0.12.8",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.34.1"
   }
