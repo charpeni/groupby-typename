@@ -49,7 +49,7 @@ npm install groupby-typename
 ## Usage
 
 > [!NOTE]
-> This utility is built with [`Object.groupBy`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy)—which is part of the new baseline for 2024. Currently supported by all major browsers, but requires TypeScript 5.4 and above (you will need to target `ESNext` or the upcoming `ES2024`), or Node 21 and above.
+> This utility is built with [`Object.groupBy`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy)—which is part of the new baseline for 2024. Currently supported by all major browsers, but requires TypeScript 5.4 and above (you will need to target at least `ES2024`), or Node 21 and above.
 >
 > If you do not meet those requirements, don't worry, the utility will fallback to a legacy implementation based on a reducer.
 
