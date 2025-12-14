@@ -33,10 +33,21 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
   checks:
+    name: ${{ matrix.check }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        check: [lint, type-check, check-exports, build]
+        include:
+          - check: lint
+            command: pnpm lint
+          - check: type-check
+            command: pnpm type-check
+          - check: check-exports
+            command: pnpm check-exports
+          - check: build
+            command: pnpm build
+          - check: tsgo
+            command: npx -y @typescript/native-preview
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Install pnpm
@@ -49,4 +60,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Run ${{ matrix.check }}
-        run: pnpm ${{ matrix.check }}
+        run: ${{ matrix.command }}
